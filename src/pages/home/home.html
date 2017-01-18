@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar [color]="'friendly'">
+    <!--<ion-img width="40" height="40" [src]="'./assets/icon/icon.png'"></ion-img>-->
+    <img width="40" height="40" src="./assets/icon/1up.png"/>
+    <ion-title>OneUp</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to da Jungle!</h2>
+
+  <h3 center>
+    Facebook Auth Example
+  </h3>
+
+  <button ion-button center (click)="facebookLogin()">
+    Log In with Facebook
+  </button>
+
+  <ion-card *ngIf="userProfile">
+    <img [src]="userProfile.photoURL"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ userProfile.displayName }}
+      </ion-card-title>
+      <p>
+        The UID for this new user is {{userProfile.uid}} and the email is {{userProfile.email}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let p of matches.tempStore | async">{{p.name}} - {{p.address}}</ion-item>
+  </ion-list>
+
+
+  <ion-buttons>
+    <button ion-button (click)="bt.startDiscovery()" type="button" [color]="'secondary'">enable & startDiscovery</button>
+    <br>
+    <button ion-button (click)="bt.keepDiscovering()" type="button" [color]="'primary'">keepDiscovering</button>
+    <br>
+  </ion-buttons>
+
+</ion-content>
