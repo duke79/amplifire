@@ -4,13 +4,14 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import firebase from 'firebase';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {HomePage} from '../pages/home/home';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = TabsPage;
+  rootPage = HomePage;
 
   constructor(platform: Platform) {
     firebase.initializeApp({
