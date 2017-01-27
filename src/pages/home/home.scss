@@ -1,3 +1,58 @@
 page-home {
+}
 
+.swipe-title {
+  position: absolute;
+  top: 38%;
+  font-size: 40px;
+  font-family: cursive;
+  color: white;
+  border: 3px solid #fbfbfb;
+  padding: 0 10px;
+  border-radius: 30%;
+}
+
+.swipe-action-highlighter, .disable-slides {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.disable-slides {
+  z-index: 1; // just equal to slides' .swiper-container
+}
+
+.swipe-success {
+  left: 0;
+}
+
+.swipe-fail {
+  right: 0;
+}
+
+.toast-success, .toast-fail {
+  z-index: 19999;
+  top: 100px;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.toast-success {
+  > div {
+    background-color: #32db64 !important;
+  }
+}
+
+.toast-fail {
+  > div {
+    background-color: #db264c !important;
+  }
+}
+
+.slide-card {
+  transition: transform 0.2s;
 }

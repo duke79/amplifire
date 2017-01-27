@@ -1,19 +1,39 @@
 <ion-header>
-  <ion-navbar [color]="'friendly'">
+  <ion-navbar [color]="'dark'">
     <!--<ion-img width="40" height="40" [src]="'./assets/icon/icon.png'"></ion-img>-->
     <img width="40" height="40" src="./assets/icon/1up.png"/>
-    <ion-title>OneUp</ion-title>
+    <ion-title style="display: inline-block;vertical-align: super;">OneUp</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to da Jungle!</h2>
 
-  <h3 center>
-    Facebook Auth Example
-  </h3>
+  <ion-slides initialSlide="1">
+    <ion-slide></ion-slide>
 
-  <button ion-button center (click)="facebookLogin()">
+    <ion-slide>
+      <ion-card [style]="slideCardStyles" class="slide-card">
+        <img src="assets/images/card-saopaolo.png"/>
+        <div class="card-title">São Paulo, tick-tick : {{tempSlide[current]}}</div>
+        <div class="card-subtitle">41 Listings</div>
+
+        <div class="swipe-action-highlighter" [style.background-color]="swipeActHighlighterBG">
+          <span class="swipe-title swipe-success" *ngIf="prog < 0.45">
+            <ion-icon name="heart"></ion-icon> Like
+          </span>
+          <span class="swipe-title swipe-fail" *ngIf="prog > 0.55">
+            <ion-icon name="close-circle"></ion-icon> Pass
+          </span>
+        </div>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide></ion-slide>
+  </ion-slides>
+
+  <div *ngIf="disableSlides" class="disable-slides"></div>
+
+  <!--<button ion-button center (click)="facebookLogin()">
     Log In with Facebook
   </button>
 
@@ -39,6 +59,13 @@
     <br>
     <button ion-button (click)="bt.keepDiscovering()" type="button" [color]="'primary'">keepDiscovering</button>
     <br>
-  </ion-buttons>
+  </ion-buttons>-->
+
+  <ion-fab center bottom>
+    <button ion-fab color="friendly" (tap)="yoyo = !yoyo">
+      <ion-spinner *ngIf="yoyo"></ion-spinner>
+      <ion-icon *ngIf="!yoyo" ios="ios-radio-outline" md="ios-radio-outline"></ion-icon>
+    </button>
+  </ion-fab>
 
 </ion-content>
